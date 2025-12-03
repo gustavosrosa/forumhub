@@ -16,6 +16,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 @Data
 @Entity
@@ -37,6 +38,7 @@ public class Topic {
 	private String message;
 	
 	@Column(nullable = false, name = "created_at")
+    @ColumnDefault("now()")
 	private LocalDateTime createdAt;
 	
 	@Column(nullable = false)

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 
@@ -29,6 +30,7 @@ public class Answer {
     private Topic topic;
 
     @Column(name = "created_at")
+    @ColumnDefault("now()")
     private LocalDateTime createdAt;
 
     @ManyToOne

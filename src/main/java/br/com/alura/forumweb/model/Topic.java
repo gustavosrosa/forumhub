@@ -28,20 +28,18 @@ public class Topic {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
 	private Long id;
 	
 	@Column(unique = true, length = 100, nullable = false)
 	private String title;
 	
-	@Column(length = 255, nullable = true)
+	@Column(length = 255, nullable = true, name = "message_topic")
 	private String message;
 	
 	@Column(nullable = false, name = "created_at")
-    @ColumnDefault("now()")
 	private LocalDateTime createdAt;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "status_topic")
 	private boolean status;
 	
 	@ManyToOne

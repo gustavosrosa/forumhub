@@ -29,7 +29,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "profiles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "profile")
     private List<Profile> profiles;
 
 }

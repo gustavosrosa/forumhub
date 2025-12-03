@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@Table(name = "topic")
 @Entity
+@Table(name = "topic")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -42,15 +42,15 @@ public class Topic {
 	@Column(nullable = false)
 	private boolean status;
 	
-	@OneToMany 
+	@ManyToOne
 	@JoinColumn(name = "author_id")
 	private User author;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "course_id")
 	private Course course;
 	
-	@ManyToOne
+	@OneToMany
     @JoinColumn(name = "answer_id")
 	private List<Answer> answers;
 	

@@ -13,10 +13,16 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @Table(name = "topic")
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Topic {
 	
 	@Id
@@ -30,8 +36,8 @@ public class Topic {
 	@Column(length = 255, nullable = true)
 	private String message;
 	
-	@Column(nullable = false, name = "createdAt")
-	private LocalDateTime created_at;
+	@Column(nullable = false, name = "created_at")
+	private LocalDateTime createdAt;
 	
 	@Column(nullable = false)
 	private boolean status;
@@ -44,8 +50,9 @@ public class Topic {
 	@JoinColumn(name = "course_id")
 	private Course course;
 	
-	@Column(nullable = false)
-	private List<String> answers;
+	@ManyToOne
+    @JoinColumn(name = "answer_id")
+	private List<Answer> answers;
 	
 
 }

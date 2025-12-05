@@ -37,10 +37,8 @@ public class Profile {
 	private Set<User> users = new HashSet<User>();
 	
 	private enum Role {
-		
 		ADMIN,
 		USER
-		
 	}
 }
 

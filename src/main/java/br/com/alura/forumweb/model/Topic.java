@@ -53,6 +53,5 @@ public class Topic {
 	@OneToMany
     @JoinColumn(name = "answer_id")
 	private List<Answer> answers;
-	
 
 }

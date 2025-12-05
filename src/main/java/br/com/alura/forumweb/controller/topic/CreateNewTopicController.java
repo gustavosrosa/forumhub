@@ -2,6 +2,7 @@ package br.com.alura.forumweb.controller.topic;
 
 import br.com.alura.forumweb.dto.topic.NewTopicDTO;
 import br.com.alura.forumweb.facade.topic.CreateNewTopicFacade;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,7 @@ public class CreateNewTopicController {
 	private CreateNewTopicFacade createNewTopicFacade;
 
     @PostMapping
-    public void createNewTopic(@RequestBody NewTopicDTO newTopicDTO) {
+    public void createNewTopic(@Valid @RequestBody NewTopicDTO newTopicDTO) {
         createNewTopicFacade.handle(newTopicDTO);
     }
 
